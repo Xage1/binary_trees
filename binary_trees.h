@@ -2,84 +2,44 @@
 #define _BINARY_TREES_H_
 
 #include <stddef.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-
-
-/**
-* struct binary_tree_s - Binary tree node
-*
-* @n: Integer stored in the node
-* @parent: Pointer to the parent node
-* @left: Pointer to the left child node
-* @right: Pointer to the right child node
-*/
-
-typedef struct binary_tree_s
-{
-int n;
-struct binary_tree_s *parent;
-struct binary_tree_s *left;
-struct binary_tree_s *right;
-} binary_tree_t;
+#include <limits.h>
 
 /**
- * struct bst_s - Binary Search Tree node
+ * struct binary_tree_s - Binary tree node
+ *
  * @n: Integer stored in the node
  * @parent: Pointer to the parent node
  * @left: Pointer to the left child node
  * @right: Pointer to the right child node
  */
-
-struct bst_s
+struct binary_tree_s
 {
-    int n;
-    struct bst_s *parent;
-    struct bst_s *left;
-    struct bst_s *right;
+	int n;
+	struct binary_tree_s *parent;
+	struct binary_tree_s *left;
+	struct binary_tree_s *right;
 };
-
-typedef struct bst_s bst_t;
-
-
+typedef struct binary_tree_s binary_tree_t;
+typedef struct binary_tree_s bst_t;
+typedef struct binary_tree_s avl_t;
+typedef struct binary_tree_s heap_t;
+/*  linked list for advanced 101 the levelorder */
 /**
- * struct avl_s - AVL Tree node
- * @n: Integer stored in the node
- * @parent: Pointer to the parent node
- * @left: Pointer to the left child node
- * @right: Pointer to the right child node
- * @balance: Balance factor of the node
+ * struct link_s - structure for advanced tasks
+ *
+ * @n: depth of node specified
+ * @node: node of tree to store
+ * @next: next node of the linked list
  */
-
-struct avl_s
+typedef struct link_s
 {
-    int n;
-    struct avl_s *parent;
-    struct avl_s *left;
-    struct avl_s *right;
-    int balance;
-};
-
-typedef struct avl_s avl_t;
-
-/**
- * struct binary_heap_s - Max Binary Heap node
- * @n: Integer stored in the node
- * @parent: Pointer to the parent node
- * @left: Pointer to the left child node
- * @right: Pointer to the right child node
- */
-
-struct binary_heap_s
-{
-    int n;
-    struct binary_heap_s *parent;
-    struct binary_heap_s *left;
-    struct binary_heap_s *right;
-};
-
-typedef struct binary_heap_s heap_t;
+	size_t n;
+	struct binary_tree_s const *node;
+	struct link_s *next;
+} link_t;
 
 
 void binary_tree_print(const binary_tree_t *);
@@ -102,7 +62,9 @@ int binary_tree_is_full(const binary_tree_t *tree);
 int binary_tree_is_perfect(const binary_tree_t *tree);
 binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
+
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+const binary_tree_t *second);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 int binary_tree_is_complete(const binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
