@@ -4,7 +4,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include<string.h>
+#include <string.h>
 
 
 /**
@@ -15,6 +15,7 @@
 * @left: Pointer to the left child node
 * @right: Pointer to the right child node
 */
+
 typedef struct binary_tree_s
 {
 int n;
@@ -22,6 +23,64 @@ struct binary_tree_s *parent;
 struct binary_tree_s *left;
 struct binary_tree_s *right;
 } binary_tree_t;
+
+/**
+ * struct bst_s - Binary Search Tree node
+ * @n: Integer stored in the node
+ * @parent: Pointer to the parent node
+ * @left: Pointer to the left child node
+ * @right: Pointer to the right child node
+ */
+
+struct bst_s
+{
+    int n;
+    struct bst_s *parent;
+    struct bst_s *left;
+    struct bst_s *right;
+};
+
+typedef struct bst_s bst_t;
+
+
+/**
+ * struct avl_s - AVL Tree node
+ * @n: Integer stored in the node
+ * @parent: Pointer to the parent node
+ * @left: Pointer to the left child node
+ * @right: Pointer to the right child node
+ * @balance: Balance factor of the node
+ */
+
+struct avl_s
+{
+    int n;
+    struct avl_s *parent;
+    struct avl_s *left;
+    struct avl_s *right;
+    int balance;
+};
+
+typedef struct avl_s avl_t;
+
+/**
+ * struct binary_heap_s - Max Binary Heap node
+ * @n: Integer stored in the node
+ * @parent: Pointer to the parent node
+ * @left: Pointer to the left child node
+ * @right: Pointer to the right child node
+ */
+
+struct binary_heap_s
+{
+    int n;
+    struct binary_heap_s *parent;
+    struct binary_heap_s *left;
+    struct binary_heap_s *right;
+};
+
+typedef struct binary_heap_s heap_t;
+
 
 void binary_tree_print(const binary_tree_t *);
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
