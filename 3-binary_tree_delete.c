@@ -2,13 +2,7 @@
 
 /**
 * binary_tree_delete - Deletes an entire binary tree.
-* @tree: A pointer to the root node of the tree to delete.
-*
-* This function deletes the entire binary tree rooted at the provided 'tree' by
-* freeing the memory associated with all nodes, ensuring there are no memory leaks.
-*
-* If 'tree' is NULL, indicating that the tree is already empty or doesn't exist, the
-* function does nothing.
+* @tree: A pointer to the root node of the tree to delete.y leaks.
 */
 
 void binary_tree_delete(binary_tree_t *tree)
